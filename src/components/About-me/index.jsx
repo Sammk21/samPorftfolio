@@ -3,6 +3,7 @@ import { useScroll, useTransform, motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 import React, { useRef, useState } from 'react';
 import { PiArrowBendRightDownThin } from 'react-icons/pi';
+import CustomCursor from '../custom-crusor/Cursor';
 
 export const projects = [
   {
@@ -92,7 +93,7 @@ const AboutMe = () => {
 
   return (
     <>
-      <section ref={container} className="relative">
+      <section ref={container} className="relative ">
         <div
           ref={aboutMe}
           className=" flex justify-start text-[12vw] font-bold sm:text-[8vw]"
@@ -160,6 +161,8 @@ const AboutMe = () => {
             <div className="absolute bottom-0 aspect-square h-[84vw] w-[65vw] sm:h-[50vw] sm:w-[38vw] lg:h-[30vw] lg:w-[25vw]">
               <motion.div
                 style={{ y: yPosAnim }}
+                onMouseEnter={() => handleMouseEnter('/videos/websites.mp4')}
+                onMouseLeave={handleMouseLeave}
                 className="from-black-500 relative h-full w-full  "
               >
                 <Image
@@ -452,6 +455,11 @@ const AboutMe = () => {
           </div>
         </div>
       </section>
+
+      <CustomCursor
+        s={hoveredProject?.scale || 0}
+        videoSrc={hoveredProject?.videoSrc}
+      />
     </>
   );
 };

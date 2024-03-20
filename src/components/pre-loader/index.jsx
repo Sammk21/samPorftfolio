@@ -1,8 +1,12 @@
 import React, { useEffect } from 'react';
 import Svg1 from './svg';
-import gsap from 'gsap';
+import gsap from 'gsap/dist/gsap';
+import CustomEase from 'gsap/dist/CustomEase';
 
 const index = () => {
+  gsap.registerPlugin(CustomEase);
+  CustomEase.create('smooth', '0.25, 0.1, 0.25, 1');
+
   useEffect(() => {
     gsap.set('.img', { y: 500 });
     gsap.set('.loader-img', { x: 500 });
@@ -43,7 +47,7 @@ const index = () => {
         {
           clipPath: 'polygon(0% 0%,100% 0%,100% 0%,0% 0%)',
           duration: 1,
-          ease: 'power3.inOut',
+          ease: 'power2.inOut',
         },
         '-=0.5'
       )
@@ -52,22 +56,13 @@ const index = () => {
         {
           y: 0,
           opacity: 1,
-          duration: 1,
-          stagger: 0.1,
-          ease: 'power4.inOut',
-        },
-        '-=1'
-      )
-      .to(
-        '.hero-para',
-        {
-          y: 0,
-          duration: 1,
+          duration: 1.2,
           stagger: 0.02,
-          ease: 'power4.inOut',
+          ease: 'smooth',
         },
-        '-=1'
+        '-=0.6'
       )
+
       .to(
         '.nav',
         {
@@ -84,15 +79,25 @@ const index = () => {
           scale: 1,
           duration: 1,
           stagger: 0.1,
-          ease: 'power4.inOut',
+          ease: 'smooth',
         },
         '-=1'
+      )
+      .to(
+        '.hero-para',
+        {
+          y: 0,
+          duration: 1,
+          stagger: 0.01,
+          ease: 'power4.inOut',
+        },
+        '-=0.5'
       );
   }, []);
 
   return (
     <div className="loader pointer-events-none fixed z-[999] h-[100vh] w-[100vw]  bg-[#181818] ">
-      <div className="loader-img absolute left-1/2 top-1/2 flex w-[150%] -translate-x-1/2 -translate-y-1/2 gap-[50px] ">
+      <div className="loader-img absolute left-1/2 top-1/2 flex w-[150%] -translate-x-1/2 -translate-y-1/2 gap-3 sm:gap-10 ">
         <div className="img">
           <Svg1 src={'c2'} />
         </div>

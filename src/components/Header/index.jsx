@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 export const Header = () => {
@@ -5,7 +6,9 @@ export const Header = () => {
     <div className="header fixed  left-0 top-0 z-50 w-screen  px-3 text-white  mix-blend-difference transition-all duration-500 ease-out">
       <div className="flex items-center justify-between py-5">
         <div className="nav relative flex">
-          <div className="text-3xl font-bold">sam</div>
+          <div className="text-3xl font-bold">
+            <Link href="/">sam</Link>
+          </div>
           <svg
             width="15"
             height="15"

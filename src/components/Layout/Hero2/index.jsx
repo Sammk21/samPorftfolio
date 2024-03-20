@@ -17,7 +17,7 @@ const Hero2 = () => {
     <section
       ref={container}
       id="hero"
-      class="mb-[-100svh] overflow-x-hidden py-0"
+      class="mb-[-100svh] overflow-hidden py-0"
     >
       <div class="section-padding  top-0 flex h-svh w-full justify-center sm:items-center ">
         <motion.svg

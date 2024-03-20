@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { slideUpTitle } from '@/animation/anim';
 import { PiArrowUpRightThin } from 'react-icons/pi';
 import CustomCursor from '@/components/custom-crusor/Cursor';
+import Link from 'next/link';
 const Projects = () => {
   const containerr = useRef();
 
@@ -24,13 +25,16 @@ const Projects = () => {
   const [isInView, setIsInView] = useState(false);
   const [isInView1, setIsInView1] = useState(false);
   const [hoveredProject, setHoveredProject] = useState(null);
+  const [viewInfo, setViewInfo] = useState(null);
 
   const handleMouseEnter = (videoSrc) => {
     setHoveredProject({ scale: 15, videoSrc });
+    setViewInfo(true);
   };
 
   const handleMouseLeave = () => {
     setHoveredProject(null);
+    setViewInfo(false);
   };
 
   return (
@@ -94,29 +98,37 @@ const Projects = () => {
             transition={{ duration: 1 }}
             viewport={{ once: true }}
             onViewportEnter={() => setIsInView1(true)}
-            onMouseEnter={() => handleMouseEnter('/videos/websites.mp4')}
-            onMouseLeave={handleMouseLeave}
             className="col-span-4 row-span-4 py-4"
           >
             <div className="relative aspect-square h-[70vw] w-[70vw] overflow-hidden rounded-3xl lg:h-[30vw] lg:w-[30vw]">
-              <motion.img
-                style={{ scale: img1transform }}
-                src="/dddepth-249.jpg"
-                fill
-                className="bottom-0 left-0 right-0 top-0 h-full w-full object-cover "
-              />
+              <a href="https://almostfamous.co.in">
+                <motion.img
+                  onMouseEnter={() => handleMouseEnter('/videos/websites.mp4')}
+                  onMouseLeave={handleMouseLeave}
+                  style={{ scale: img1transform }}
+                  src="/dddepth-249.jpg"
+                  fill
+                  className="bottom-0 left-0 right-0 top-0 h-full w-full object-cover "
+                />
+              </a>
               <div className="project-title absolute bottom-[5%] left-[5%] text-black ">
-                <div className="flex w-[100%] items-center justify-between gap-x-3">
-                  <div className=" rounded-full bg-white px-3 py-4 drop-shadow-sm">
-                    Afstrore
-                  </div>
-                  <div className="flex h-fit items-center justify-center rounded-full bg-white p-4 text-2xl drop-shadow-sm">
-                    <PiArrowUpRightThin className="stroke-black" />
+                <div className="flex flex-col gap-y-2">
+                  <div className="flex flex-col gap-y-2  overflow-hidden text-xs"></div>
+                  <div className="project-title  text-black ">
+                    <div className="group flex w-[100%] items-center justify-between gap-x-3">
+                      <motion.div className="rounded-full bg-white px-3 py-4 drop-shadow-sm">
+                        Af-store
+                      </motion.div>
+                      <motion.div className="flex h-fit items-center justify-center rounded-full bg-white p-4 text-2xl drop-shadow-sm ">
+                        <PiArrowUpRightThin className="stroke-black " />
+                      </motion.div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </motion.div>
+
           <motion.div
             initial={false}
             animate={
@@ -128,35 +140,42 @@ const Projects = () => {
             viewport={{ once: true }}
             onViewportEnter={() => setIsInView(true)}
             className="col-span-6 row-span-8 py-4"
-            onMouseEnter={() => handleMouseEnter('/videos/apps.mp4')}
-            onMouseLeave={handleMouseLeave}
           >
-            <div className="relative aspect-square h-[70vw] w-[70vw] overflow-hidden rounded-3xl lg:h-[40vw] lg:w-[40vw]">
-              <motion.img
-                style={{ scale: img1transform }}
-                src="https://abhishekjha.me/aeizei.7edf201c.png"
-                fill
-                className="bottom-0 left-0 right-0 top-0 h-full w-full object-cover "
-              />
-              <div className="project-title absolute bottom-[5%] left-[5%] text-black ">
-                <div className="flex w-[100%] items-center justify-between gap-x-3">
-                  <div className=" rounded-full bg-white px-3 py-4 drop-shadow-sm">
-                    Combi
-                  </div>
-                  <div className="flex h-fit items-center justify-center rounded-full bg-white p-4 text-2xl drop-shadow-sm">
-                    <PiArrowUpRightThin className="stroke-black" />
+            <div className=" relative aspect-square h-[70vw] w-[70vw] overflow-hidden rounded-3xl lg:h-[40vw] lg:w-[40vw]">
+              <a href="https://almostfamous.co.in">
+                <motion.img
+                  onMouseEnter={() => handleMouseEnter('/videos/apps.mp4')}
+                  onMouseLeave={handleMouseLeave}
+                  style={{ scale: img1transform }}
+                  src="https://abhishekjha.me/aeizei.7edf201c.png"
+                  fill
+                  className="bottom-0 left-0 right-0 top-0 h-full w-full object-cover "
+                />
+              </a>
+              <div className="absolute bottom-[5%] left-[5%]">
+                <div className="flex flex-col gap-y-2">
+                  <div className="flex flex-col gap-y-2  text-xs"></div>
+                  <div className="project-title  text-black ">
+                    <div className="group flex w-[100%] items-center justify-between gap-x-3">
+                      <div className=" rounded-full bg-white px-3 py-4 drop-shadow-sm">
+                        Combi
+                      </div>
+                      <div className="flex h-fit items-center justify-center rounded-full bg-white p-4 text-2xl drop-shadow-sm ">
+                        <PiArrowUpRightThin className="stroke-black " />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </motion.div>
+
+          <CustomCursor
+            s={hoveredProject?.scale || 4}
+            videoSrc={hoveredProject?.videoSrc}
+          />
         </div>
       </div>
-
-      <CustomCursor
-        s={hoveredProject?.scale || 4}
-        videoSrc={hoveredProject?.videoSrc}
-      />
     </>
   );
 };

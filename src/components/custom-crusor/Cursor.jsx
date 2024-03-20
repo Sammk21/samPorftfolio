@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
+
 const CustomCursor = ({ s, videoSrc }) => {
   const cursorRef = useRef(null);
-  //   const [content, setContent] = useState(null);
 
   useEffect(() => {
     const onMouseMove = (e) => {
@@ -43,14 +43,16 @@ const CustomCursor = ({ s, videoSrc }) => {
         height: `${s}px`,
         borderRadius: '50%',
         pointerEvents: 'none', // So that the cursor doesn't interfere with other elements
-        zIndex: 9999, // Ensure cursor is on top
+        zIndex: 8888, // Ensure cursor is on top
         transform: 'translate(-50%, -50%)',
         mixBlendMode: videoSrc ? 'normal' : 'difference',
       }}
     >
       {videoSrc && (
         <video
+          className=""
           style={{
+            zIndex: 9999,
             width: '100%',
             height: '100%',
             objectFit: 'cover',
