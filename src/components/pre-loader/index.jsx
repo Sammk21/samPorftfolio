@@ -70,7 +70,7 @@ const index = () => {
           stagger: 0.01,
           ease: 'power4.inOut',
         },
-        '-=0.5'
+        '-=1'
       )
       .to(
         '.nav',
