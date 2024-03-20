@@ -14,6 +14,23 @@ export const slideUp = {
     transition: { duration: 0.5 },
   },
 };
+export const slideUpTitle = {
+  initial: {
+    y: '100%',
+  },
+  open: (i) => ({
+    y: '0%',
+    transition: {
+      duration: 0.8,
+      delay: 0.03 * i,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  }),
+  closed: {
+    y: '100%',
+    transition: { duration: 0.5 },
+  },
+};
 
 export const opacity = {
   initial: {

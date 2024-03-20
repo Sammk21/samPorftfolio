@@ -1,20 +1,23 @@
-import { useInView, useScroll, useSpring, useTransform } from 'framer-motion';
+import { easeOut, useInView, useScroll, useTransform } from 'framer-motion';
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-
+import { slideUpTitle } from '@/animation/anim';
 import { PiArrowUpRightThin } from 'react-icons/pi';
 import CustomCursor from '@/components/custom-crusor/Cursor';
-import AboutMe from '../About-me';
-
 const Projects = () => {
   const containerr = useRef();
 
   const { scrollYProgress } = useScroll({
     target: containerr,
-    offset: ['start end', 'end end'],
+    offset: ['start end', 'end start'],
   });
+
+  const title = useRef(null);
+  const isInViewTitle = useInView(title);
+  const projectTitle = 'Projects';
+
   const y = useTransform(scrollYProgress, [0, 1], [20, 0]);
-  const img1transform = useTransform(scrollYProgress, [0, 1], [2, 1]);
+  const img1transform = useTransform(scrollYProgress, [0, 1], [1.3, 1]);
 
   const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 50px, rgba(0,0,0,1) 50px, rgba(0,0,0,1) 50px)`;
   const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
@@ -34,11 +37,31 @@ const Projects = () => {
     <>
       <div
         ref={containerr}
-        className=" relative flex w-full flex-col justify-center overflow-x-hidden "
+        className=" relative mt-12 flex w-full flex-col justify-center overflow-x-hidden "
       >
         <div className="title flex items-center justify-between">
-          <div className="flex items-center justify-start  gap-x-2 text-[12vw] font-bold sm:text-[8vw]">
-            <span>Projects</span>{' '}
+          <div
+            ref={title}
+            className="flex items-center justify-start text-[12vw] font-bold sm:text-[8vw]"
+          >
+            {projectTitle.split('').map((word, index) => {
+              return (
+                <span
+                  className="relative inline-flex overflow-hidden text-center "
+                  key={index}
+                >
+                  <motion.span
+                    className="inline-block"
+                    variants={slideUpTitle}
+                    custom={index}
+                    animate={isInViewTitle ? 'open' : 'closed'}
+                    transition={{ ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    {word}
+                  </motion.span>
+                </span>
+              );
+            })}
             <span className="text-[4vw] ">
               (<span className="text-[#ff0000]">2</span>)
             </span>
@@ -60,7 +83,7 @@ const Projects = () => {
             </motion.svg>
           </div>
         </div>
-        <div className="relative flex h-[120vh] flex-col items-center justify-center gap-y-7  text-2xl font-medium">
+        <div className="mx-auto grid-cols-10 grid-rows-10 flex-col items-center gap-7 py-10  text-2xl font-medium lg:grid lg:h-[120vh]">
           <motion.div
             initial={false}
             animate={
@@ -68,12 +91,12 @@ const Projects = () => {
                 ? { WebkitMaskImage: visibleMask, maskImage: visibleMask }
                 : { WebkitMaskImage: hiddenMask, maskImage: hiddenMask }
             }
-            transition={{ duration: 1, delay: 1 }}
+            transition={{ duration: 1 }}
             viewport={{ once: true }}
             onViewportEnter={() => setIsInView1(true)}
             onMouseEnter={() => handleMouseEnter('/videos/websites.mp4')}
             onMouseLeave={handleMouseLeave}
-            className="left-[10%] top-[5%] lg:absolute"
+            className="col-span-4 row-span-4 py-4"
           >
             <div className="relative aspect-square h-[70vw] w-[70vw] overflow-hidden rounded-3xl lg:h-[30vw] lg:w-[30vw]">
               <motion.img
@@ -101,10 +124,10 @@ const Projects = () => {
                 ? { WebkitMaskImage: visibleMask, maskImage: visibleMask }
                 : { WebkitMaskImage: hiddenMask, maskImage: hiddenMask }
             }
-            transition={{ duration: 1, delay: 1 }}
+            transition={{ duration: 1, ease: easeOut }}
             viewport={{ once: true }}
             onViewportEnter={() => setIsInView(true)}
-            className="right-[10%] top-[35%] lg:absolute"
+            className="col-span-6 row-span-8 py-4"
             onMouseEnter={() => handleMouseEnter('/videos/apps.mp4')}
             onMouseLeave={handleMouseLeave}
           >

@@ -4,7 +4,7 @@ export const Header = () => {
   return (
     <div className="header fixed  left-0 top-0 z-50 w-screen  px-3 text-white  mix-blend-difference transition-all duration-500 ease-out">
       <div className="flex items-center justify-between py-5">
-        <div className="relative flex">
+        <div className="nav relative flex">
           <div className="text-3xl font-bold">sam</div>
           <svg
             width="15"
@@ -39,11 +39,11 @@ export const Header = () => {
           </svg>
         </div>
         <div className="flex gap-x-5 text-[3vw] sm:text-lg ">
-          <span className="-mr-3 h-3 w-3 self-center rounded-full bg-green"></span>
-          <h1>
+          <span className="nav -mr-3 h-3 w-3 self-center rounded-full bg-green"></span>
+          <h1 className="nav">
             <span>Available for freelance work</span>
           </h1>
-          <h1> ©2024</h1>
+          <h1 className="nav"> ©2024</h1>
         </div>
       </div>
     </div>

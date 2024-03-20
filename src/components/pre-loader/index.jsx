@@ -1,0 +1,122 @@
+import React, { useEffect } from 'react';
+import Svg1 from './svg';
+import gsap from 'gsap';
+
+const index = () => {
+  useEffect(() => {
+    gsap.set('.img', { y: 500 });
+    gsap.set('.loader-img', { x: 500 });
+    gsap.set('.hero-title', { y: 300 });
+    gsap.set('.hero-para', { y: 100 });
+    gsap.set('.nav', { y: -100 });
+    gsap.set('#hero', { scale: 0.8 });
+
+    const tl = gsap.timeline({ delay: 1 });
+
+    tl.to('.img', {
+      y: 0,
+      duration: 1.5,
+      stagger: 0.5,
+      ease: 'power3.inOut',
+    })
+      .to(
+        '.loader-img',
+        {
+          x: 0,
+          duration: 3,
+          ease: 'power3.inOut',
+        },
+        '-=2.5'
+      )
+      .to(
+        '.img:not(#loader-logo)',
+        {
+          clipPath: 'polygon(0% 0%,100% 0%,100% 0%,0% 0%)',
+          duration: 0.4,
+          stagger: 0.1,
+          ease: 'power3.inOut',
+        },
+        '-=1'
+      )
+      .to(
+        '.loader',
+        {
+          clipPath: 'polygon(0% 0%,100% 0%,100% 0%,0% 0%)',
+          duration: 1,
+          ease: 'power3.inOut',
+        },
+        '-=0.5'
+      )
+      .to(
+        '.hero-title',
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          stagger: 0.1,
+          ease: 'power4.inOut',
+        },
+        '-=1'
+      )
+      .to(
+        '.hero-para',
+        {
+          y: 0,
+          duration: 1,
+          stagger: 0.02,
+          ease: 'power4.inOut',
+        },
+        '-=1'
+      )
+      .to(
+        '.nav',
+        {
+          y: 0,
+          duration: 1,
+          stagger: 0.1,
+          ease: 'power4.inOut',
+        },
+        '-=1'
+      )
+      .to(
+        '#hero',
+        {
+          scale: 1,
+          duration: 1,
+          stagger: 0.1,
+          ease: 'power4.inOut',
+        },
+        '-=1'
+      );
+  }, []);
+
+  return (
+    <div className="loader pointer-events-none fixed z-[999] h-[100vh] w-[100vw]  bg-[#181818] ">
+      <div className="loader-img absolute left-1/2 top-1/2 flex w-[150%] -translate-x-1/2 -translate-y-1/2 gap-[50px] ">
+        <div className="img">
+          <Svg1 src={'c2'} />
+        </div>
+        <div className="img">
+          <Svg1 src={'maven'} />
+        </div>
+        <div className="img">
+          <Svg1 src={'funny'} />
+        </div>
+        <div className="img" id="loader-logo">
+          <Svg1 src={'sam'} />
+        </div>
+        <div className="img">
+          <Svg1 src={'panda'} />
+        </div>
+        <div className="img">
+          <Svg1 src={'powell'} />
+        </div>
+        <div className="img">
+          <Svg1 src={'wix'} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default index;

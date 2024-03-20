@@ -1,10 +1,5 @@
-import {
-  useScroll,
-  useTransform,
-  motion,
-  useMotionValue,
-  useSpring,
-} from 'framer-motion';
+import { slideUpTitle } from '@/animation/anim';
+import { useScroll, useTransform, motion } from 'framer-motion';
 
 import React, { useRef } from 'react';
 
@@ -24,14 +19,14 @@ const Hero2 = () => {
       id="hero"
       class="mb-[-100svh] overflow-x-hidden py-0"
     >
-      <div class="section-padding sticky top-0 flex h-svh w-full justify-center sm:items-center ">
+      <div class="section-padding  top-0 flex h-svh w-full justify-center sm:items-center ">
         <motion.svg
           width="1186"
           height="1186"
           viewBox="0 0 1186 1186"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="pointer-events-none absolute -bottom-[70%] z-0 w-[70%] opacity-15 sm:w-3/5 lg:w-2/5"
+          className=" pointer-events-none absolute bottom-[12%] z-0 w-[70%] opacity-5 sm:w-3/5 lg:w-2/5"
           style={{ y, scale: scale }}
         >
           <circle
@@ -54,6 +49,7 @@ const Hero2 = () => {
             </linearGradient>
           </defs>
         </motion.svg>
+
         <div className="flex h-full w-full items-center justify-center">
           <Text scrollYProgress={scrollYProgress} />
         </div>
@@ -70,16 +66,45 @@ const Text = ({ scrollYProgress }) => {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [3, 0]);
   const scale = useTransform(scrollYProgress, [0.1, 1], [1, 0.6]);
   const y = useTransform(scrollYProgress, [0, 0.8], [3, 1]);
+  const heroTitle = "Hi there, i'm sam";
+  const heroPara =
+    " A passionate web developer & web designer Let's collaborate to  elevate your digital footprint with style and innovation";
   return (
     <motion.div style={{ opacity: opacity, scale }} class=" z-10  ">
-      <div class="flex h-full w-full flex-col gap-y-3 text-[12vw] sm:mb-0 sm:items-center sm:gap-y-8 sm:text-[10vw] lg:text-[8vw]">
-        <motion.h1 style={{ y }} className="font-medium">
-          Hi there, i'm sam{' '}
-        </motion.h1>
-        <p class="text-secondary-100 xl:text-h6 2xl:text-h5 max-w-[38ch] pl-1 text-start text-base font-medium sm:pl-0 sm:text-center">
-          A passionate web developer & web designer Let's collaborate to &amp;
-          elevate your digital footprint with style and innovation
-        </p>
+      <div class="hero-title1 flex h-full w-full flex-col gap-y-3 text-[12vw] sm:mb-0 sm:items-center sm:gap-y-8 sm:text-[10vw] lg:text-[8vw]">
+        <div className="flex">
+          {heroTitle.split(' ').map((word, index) => {
+            return (
+              <motion.h1
+                style={{ y }}
+                variants={slideUpTitle}
+                initial="initial"
+                animate="open"
+                exit="closed"
+                className="hero-title relative flex font-medium leading-tight"
+              >
+                <span className="mr-3 inline-block">{word}</span>
+              </motion.h1>
+            );
+          })}
+        </div>
+
+        <div className="hero-para1 relative flex">
+          <motion.p
+            style={{ y }}
+            variants={slideUpTitle}
+            initial="initial"
+            animate="open"
+            exit="closed"
+            className="text-secondary-100 hero-para relative max-w-[38ch] text-wrap pl-1  text-2xl font-medium sm:pl-0 sm:text-center"
+          >
+            {heroPara.split(' ').map((word, index) => {
+              return (
+                <span className=" hero-para mr-1.5 inline-block">{word}</span>
+              );
+            })}
+          </motion.p>
+        </div>
       </div>
     </motion.div>
   );

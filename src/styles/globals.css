@@ -257,3 +257,31 @@ html{
 .fill-low{
   fill: rgba(160, 160, 160, 0.351);
 }
+.white{
+background-color: #ffffff;
+}
+.black{
+  background-color: #100f0f;
+}
+
+.loader
+{
+  clip-path: polygon(0% 0%,100% 0%,100% 100%,0% 100% );
+
+}
+.loader-img{
+    clip-path: polygon(0% 0%,100% 0%,100% 100%,0% 100% );
+}
+.img{
+  position: relative;
+  flex: 1;
+      clip-path: polygon(0% 0%,100% 0%,100% 100%,0% 100% );
+}
+.hero-title1 {
+  
+   clip-path: polygon(0% 0%,100% 0%,100% 100%,0% 100% );
+}
+.hero-para1{
+    clip-path: polygon(0% 0%,100% 0%,100% 100%,0% 100% );
+}
+
