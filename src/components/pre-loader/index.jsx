@@ -62,7 +62,16 @@ const index = () => {
         },
         '-=0.6'
       )
-
+      .to(
+        '.hero-para',
+        {
+          y: 0,
+          duration: 1,
+          stagger: 0.01,
+          ease: 'power4.inOut',
+        },
+        '-=0.5'
+      )
       .to(
         '.nav',
         {
@@ -82,17 +91,8 @@ const index = () => {
           ease: 'smooth',
         },
         '-=1'
-      )
-      .to(
-        '.hero-para',
-        {
-          y: 0,
-          duration: 1,
-          stagger: 0.01,
-          ease: 'power4.inOut',
-        },
-        '-=0.5'
       );
+      
   }, []);
 
   return (
