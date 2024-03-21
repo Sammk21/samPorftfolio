@@ -2,12 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import url('../css/clash-display.css');
-html {
-  scroll-behavior: initial;
-}
-html {
-  scroll-snap-type: y mandatory;
-} */
+
 
 *{
    -webkit-font-smoothing: antialiased;
