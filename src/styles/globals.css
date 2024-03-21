@@ -282,3 +282,9 @@ background-color: #ffffff;
 .hero-title{
     font-family: 'Thunder';
 }
+
+.reveal {
+  visibility: hidden;
+  position: relative;
+  overflow: hidden;
+}

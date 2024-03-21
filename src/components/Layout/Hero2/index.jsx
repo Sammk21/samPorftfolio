@@ -75,7 +75,7 @@ const Text = ({ scrollYProgress }) => {
     "A passionate web developer & web designer Let's collaborate to elevate your digital footprint with style and innovation";
   return (
     <motion.div style={{ opacity: opacity, scale }} class=" z-10  ">
-      <div class="hero-title1 flex h-full w-full flex-col px-10 text-[20vw] leading-tight sm:mb-0 sm:items-center">
+      <div class="hero-title1 flex h-full w-full flex-col px-10 text-[35vw] leading-tight sm:mb-0 sm:items-center sm:text-[20vw]">
         <MagneticButton>
           <div className="flex justify-center">
             {heroTitle.split('').map((word, index) => {

@@ -6,6 +6,8 @@ import CustomEase from 'gsap/dist/CustomEase';
 const index = () => {
   gsap.registerPlugin(CustomEase);
   CustomEase.create('smooth', '0.25, 0.1, 0.25, 1');
+    CustomEase.create('fast', '0, 0.55, 0.45, 1');
+  
 
   useEffect(() => {
     gsap.set('.img', { y: 500 });

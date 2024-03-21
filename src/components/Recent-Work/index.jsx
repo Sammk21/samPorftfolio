@@ -1,10 +1,11 @@
 import { easeOut, useInView, useScroll, useTransform } from 'framer-motion';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { slideUpTitle } from '@/animation/anim';
 import { PiArrowUpRightThin } from 'react-icons/pi';
 import CustomCursor from '@/components/custom-crusor/Cursor';
-import Link from 'next/link';
+import gsap from 'gsap/dist/gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 const Projects = () => {
   const containerr = useRef();
 
@@ -25,17 +26,43 @@ const Projects = () => {
   const [isInView, setIsInView] = useState(false);
   const [isInView1, setIsInView1] = useState(false);
   const [hoveredProject, setHoveredProject] = useState(null);
-  const [viewInfo, setViewInfo] = useState(null);
 
   const handleMouseEnter = (videoSrc) => {
     setHoveredProject({ scale: 15, videoSrc });
-    setViewInfo(true);
   };
 
   const handleMouseLeave = () => {
     setHoveredProject(null);
-    setViewInfo(false);
   };
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  useEffect(() => {
+    let revealContainers = document.querySelectorAll('.reveal');
+    revealContainers.forEach((container) => {
+      let image = container.querySelector('img');
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: container,
+          toggleActions: 'restart none none reset',
+        },
+      });
+      tl.set(container, { autoAlpha: 1 });
+      tl.from(container, 1.5, {
+        xPercent: -100,
+        duration: 200,
+        stagger: 1,
+        ease: 'power4.out',
+      });
+      tl.from(image, 1.5, {
+        xPercent: 100,
+        duration: 200,
+        scale: 1.3,
+        delay: -1.5,
+        ease: 'power4.out',
+      });
+    });
+  }, []);
 
   return (
     <>
@@ -55,6 +82,7 @@ const Projects = () => {
                   key={index}
                 >
                   <motion.span
+                    viewport={{ once: true }}
                     className="inline-block"
                     variants={slideUpTitle}
                     custom={index}
@@ -89,27 +117,24 @@ const Projects = () => {
         </div>
         <div className="mx-auto grid-cols-10  flex-col items-center gap-7 py-10  text-2xl font-medium lg:grid ">
           <motion.div
-            initial={false}
-            animate={
-              isInView1
-                ? { WebkitMaskImage: visibleMask, maskImage: visibleMask }
-                : { WebkitMaskImage: hiddenMask, maskImage: hiddenMask }
-            }
-            transition={{ duration: 1 }}
             viewport={{ once: true }}
             onViewportEnter={() => setIsInView1(true)}
-            className="col-span-4 row-span-4 py-4"
+            className="project-container col-span-4 row-span-4 py-4"
           >
-            <div className="relative aspect-square h-[70vw] w-[70vw] overflow-hidden rounded-3xl lg:h-[30vw] lg:w-[30vw]">
-              <a href="https://almostfamous.co.in">
-                <motion.img
-                  onMouseEnter={() => handleMouseEnter('/videos/websites.mp4')}
-                  onMouseLeave={handleMouseLeave}
-                  style={{ scale: img1transform }}
-                  src="/dddepth-249.jpg"
-                  fill
-                  className="bottom-0 left-0 right-0 top-0 h-full w-full object-cover "
-                />
+            <div className=" relative aspect-square h-[70vw] w-[70vw] overflow-hidden rounded-3xl lg:h-[30vw] lg:w-[30vw]">
+              <a className="" href="https://almostfamous.co.in">
+                <div class="container">
+                  <div class="reveal bg-[#d06c10]">
+                    <img
+                      className="bottom-0 left-0 right-0 top-0 h-full w-full object-cover "
+                      onMouseEnter={() =>
+                        handleMouseEnter('/videos/websites.mp4')
+                      }
+                      onMouseLeave={handleMouseLeave}
+                      src="https://images.unsplash.com/photo-1531727991582-cfd25ce79613?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80%20634w"
+                    />
+                  </div>
+                </div>
               </a>
               <div className="project-title absolute bottom-[5%] left-[5%] text-black ">
                 <div className="flex flex-col gap-y-2">
@@ -131,27 +156,21 @@ const Projects = () => {
 
           <motion.div
             initial={false}
-            animate={
-              isInView
-                ? { WebkitMaskImage: visibleMask, maskImage: visibleMask }
-                : { WebkitMaskImage: hiddenMask, maskImage: hiddenMask }
-            }
-            transition={{ duration: 1, ease: easeOut }}
             viewport={{ once: true }}
             onViewportEnter={() => setIsInView(true)}
             className="col-span-6 row-span-8 py-4"
           >
             <div className=" relative aspect-square h-[70vw] w-[70vw] overflow-hidden rounded-3xl lg:h-[40vw] lg:w-[40vw]">
-              <a href="https://almostfamous.co.in">
-                <motion.img
-                  onMouseEnter={() => handleMouseEnter('/videos/apps.mp4')}
-                  onMouseLeave={handleMouseLeave}
-                  style={{ scale: img1transform }}
-                  src="https://abhishekjha.me/aeizei.7edf201c.png"
-                  fill
-                  className="bottom-0 left-0 right-0 top-0 h-full w-full object-cover "
-                />
-              </a>
+              <div class="container">
+                <div class="reveal aspect-square">
+                  <img
+                    className="bottom-0 left-0 right-0 top-0 h-full w-full object-cover "
+                    onMouseEnter={() => handleMouseEnter('/videos/apps.mp4')}
+                    onMouseLeave={handleMouseLeave}
+                    src="/dddepth-249.jpg"
+                  />
+                </div>
+              </div>
               <div className="absolute bottom-[5%] left-[5%]">
                 <div className="flex flex-col gap-y-2">
                   <div className="flex flex-col gap-y-2  text-xs"></div>
