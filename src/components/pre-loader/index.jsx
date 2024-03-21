@@ -10,8 +10,8 @@ const index = () => {
   useEffect(() => {
     gsap.set('.img', { y: 500 });
     gsap.set('.loader-img', { x: 500 });
-    gsap.set('.hero-title', { y: 300 });
-    gsap.set('.hero-para', { y: 100 });
+    gsap.set('.hero-title', { y: 300, opacity: 0, scale: 2 });
+    gsap.set('.hero-para', { y: 100, opacity: 0 });
     gsap.set('.nav', { y: -100 });
     gsap.set('#hero', { scale: 0.8 });
 
@@ -52,13 +52,24 @@ const index = () => {
         '-=0.5'
       )
       .to(
+        '#hero',
+        {
+          scale: 1,
+          duration: 1,
+          stagger: 0.1,
+          ease: 'smooth',
+        },
+        '-=0.6'
+      )
+      .to(
         '.hero-title',
         {
           y: 0,
           opacity: 1,
           duration: 1.2,
+          scale: 1,
           stagger: 0.02,
-          ease: 'smooth',
+          ease: 'power4.out',
         },
         '-=0.6'
       )
@@ -66,6 +77,7 @@ const index = () => {
         '.hero-para',
         {
           y: 0,
+          opacity: 1,
           duration: 1,
           stagger: 0.01,
           ease: 'power4.inOut',
@@ -81,18 +93,7 @@ const index = () => {
           ease: 'power4.inOut',
         },
         '-=1'
-      )
-      .to(
-        '#hero',
-        {
-          scale: 1,
-          duration: 1,
-          stagger: 0.1,
-          ease: 'smooth',
-        },
-        '-=1'
       );
-      
   }, []);
 
   return (

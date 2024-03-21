@@ -81,15 +81,6 @@ const AboutMe = () => {
   const aboutInView = useInView(aboutMe);
   const whatIdoInView = useInView(whatIdoref);
 
-  const [hoveredProject, setHoveredProject] = useState(null);
-
-  const handleMouseEnter = (videoSrc) => {
-    setHoveredProject({ scale: 15, videoSrc });
-  };
-
-  const handleMouseLeave = () => {
-    setHoveredProject(null);
-  };
 
   return (
     <>
@@ -161,8 +152,6 @@ const AboutMe = () => {
             <div className="absolute bottom-0 aspect-square h-[84vw] w-[65vw] sm:h-[50vw] sm:w-[38vw] lg:h-[30vw] lg:w-[25vw]">
               <motion.div
                 style={{ y: yPosAnim }}
-                onMouseEnter={() => handleMouseEnter('/videos/websites.mp4')}
-                onMouseLeave={handleMouseLeave}
                 className="from-black-500 relative h-full w-full  "
               >
                 <Image
@@ -455,11 +444,6 @@ const AboutMe = () => {
           </div>
         </div>
       </section>
-
-      <CustomCursor
-        s={hoveredProject?.scale || 0}
-        videoSrc={hoveredProject?.videoSrc}
-      />
     </>
   );
 };

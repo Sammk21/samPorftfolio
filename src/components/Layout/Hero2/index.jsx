@@ -1,8 +1,12 @@
 import { slideUpTitle } from '@/animation/anim';
 import { useScroll, useTransform, motion } from 'framer-motion';
-
 import React, { useRef } from 'react';
+import localFont from '@next/font/local';
+import MagneticButton from '@/components/Common/magnetic-button';
 
+const thunder = localFont({
+  src: '../../../fonts/Thunder/Thunder-BlackLC.otf',
+});
 const Hero2 = () => {
   const container = useRef();
   const { scrollYProgress } = useScroll({
@@ -66,28 +70,30 @@ const Text = ({ scrollYProgress }) => {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [3, 0]);
   const scale = useTransform(scrollYProgress, [0.1, 1], [1, 0.6]);
   const y = useTransform(scrollYProgress, [0, 0.8], [3, 1]);
-  const heroTitle = "Hi there, i'm sam";
+  const heroTitle = 'SAM';
   const heroPara =
-    " A passionate web developer & web designer Let's collaborate to  elevate your digital footprint with style and innovation";
+    "A passionate web developer & web designer Let's collaborate to elevate your digital footprint with style and innovation";
   return (
     <motion.div style={{ opacity: opacity, scale }} class=" z-10  ">
-      <div class="hero-title1 flex h-full w-full flex-col gap-y-3 text-[12vw] sm:mb-0 sm:items-center sm:gap-y-8 sm:text-[10vw] lg:text-[8vw]">
-        <div className="flex">
-          {heroTitle.split(' ').map((word, index) => {
-            return (
-              <motion.h1
-                style={{ y }}
-                variants={slideUpTitle}
-                initial="initial"
-                animate="open"
-                exit="closed"
-                className="hero-title relative flex font-medium leading-tight"
-              >
-                <span className="mr-3 inline-block">{word}</span>
-              </motion.h1>
-            );
-          })}
-        </div>
+      <div class="hero-title1 flex h-full w-full flex-col px-10 text-[20vw] leading-tight sm:mb-0 sm:items-center">
+        <MagneticButton>
+          <div className="flex justify-center">
+            {heroTitle.split('').map((word, index) => {
+              return (
+                <motion.h1
+                  style={{ y }}
+                  variants={slideUpTitle}
+                  initial="initial"
+                  animate="open"
+                  exit="closed"
+                  className={`hero-title relative flex text-end font-medium  ${thunder.className}`}
+                >
+                  <span className=" inline-block text-end">{word}</span>
+                </motion.h1>
+              );
+            })}
+          </div>
+        </MagneticButton>
 
         <div className="hero-para1 relative flex">
           <motion.p
@@ -96,7 +102,7 @@ const Text = ({ scrollYProgress }) => {
             initial="initial"
             animate="open"
             exit="closed"
-            className="text-secondary-100 hero-para relative max-w-[38ch] text-wrap pl-1  text-2xl font-medium sm:pl-0 sm:text-center"
+            className="text-secondary-100 hero-para relative max-w-[38ch] text-wrap pl-1  text-center text-[4vw] font-medium sm:pl-0 sm:text-[2vw] lg:text-[1vw]"
           >
             {heroPara.split(' ').map((word, index) => {
               return (

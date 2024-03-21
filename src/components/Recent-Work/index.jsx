@@ -87,7 +87,7 @@ const Projects = () => {
             </motion.svg>
           </div>
         </div>
-        <div className="mx-auto grid-cols-10 grid-rows-10 flex-col items-center gap-7 py-10  text-2xl font-medium lg:grid lg:h-[120vh]">
+        <div className="mx-auto grid-cols-10  flex-col items-center gap-7 py-10  text-2xl font-medium lg:grid ">
           <motion.div
             initial={false}
             animate={
@@ -169,12 +169,11 @@ const Projects = () => {
               </div>
             </div>
           </motion.div>
-
-          <CustomCursor
-            s={hoveredProject?.scale || 4}
-            videoSrc={hoveredProject?.videoSrc}
-          />
         </div>
+        <CustomCursor
+          s={hoveredProject?.scale || 4}
+          videoSrc={hoveredProject?.videoSrc}
+        />
       </div>
     </>
   );

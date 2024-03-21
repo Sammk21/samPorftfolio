@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 @import url('../css/clash-display.css');
-/* 
 html {
   scroll-behavior: initial;
 }
@@ -285,3 +284,6 @@ background-color: #ffffff;
     clip-path: polygon(0% 0%,100% 0%,100% 100%,0% 100% );
 }
 
+.hero-title{
+    font-family: 'Thunder';
+}

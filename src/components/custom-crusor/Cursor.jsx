@@ -1,11 +1,15 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 
-
 const CustomCursor = ({ s, videoSrc }) => {
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const cursorRef = useRef(null);
 
   useEffect(() => {
+    window.addEventListener('touchstart', function () {
+      setIsTouchDevice(true);
+    });
+
     const onMouseMove = (e) => {
       gsap.to(cursorRef.current, {
         x: e.clientX,
@@ -34,7 +38,9 @@ const CustomCursor = ({ s, videoSrc }) => {
   return (
     <div
       ref={cursorRef}
-      className="custom-cursor overflow-hidden bg-white"
+      className={`custom-cursor overflow-hidden bg-white ${
+        isTouchDevice && 'hidden'
+      } `}
       style={{
         position: 'fixed',
         top: 0,
