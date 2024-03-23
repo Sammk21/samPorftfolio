@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useRef } from 'react';
 import { useScroll, useTransform, motion } from 'framer-motion';
 import MagneticButton from '../Common/magnetic-button';
@@ -67,13 +69,19 @@ const Logos = ({ scrollProgress }) => {
             </MagneticButton>
           </div>
           <div className="socials mt-16 flex  items-center  justify-between gap-y-5">
-            <Link href="https://www.instagram.com/abeysamm/">
+            <Link
+              href="https://www.instagram.com/abeysamm/"
+              className="cta font-base  "
+            >
               <Socialbutton>Instagram</Socialbutton>
             </Link>
-            <Link href="https://www.linkedin.com/in/sameer-khan-837023259/">
+            <Link
+              href="https://www.linkedin.com/in/sameer-khan-837023259/"
+              className="cta font-base  "
+            >
               <Socialbutton>Linkdin</Socialbutton>
             </Link>
-            <Link href="https://github.com/Sammk21">
+            <Link href="https://github.com/Sammk21" className="cta font-base  ">
               <Socialbutton>Github</Socialbutton>
             </Link>
           </div>
@@ -89,9 +97,7 @@ const Logos = ({ scrollProgress }) => {
 function Socialbutton({ children }) {
   return (
     <>
-      <Link href="/" className="cta font-base  ">
-        <span className="hover-underline-animation">{children}</span>
-      </Link>
+      <span className="hover-underline-animation">{children}</span>
     </>
   );
 }
@@ -132,5 +138,3 @@ function Svg({ scrollProgress }) {
     </>
   );
 }
-  
-
