@@ -67,9 +67,15 @@ const Logos = ({ scrollProgress }) => {
             </MagneticButton>
           </div>
           <div className="socials mt-16 flex  items-center  justify-between gap-y-5">
-            <Socialbutton>Instagram</Socialbutton>
-            <Socialbutton>Linkdin</Socialbutton>
-            <Socialbutton>Github</Socialbutton>
+            <Link href="https://www.instagram.com/abeysamm/">
+              <Socialbutton>Instagram</Socialbutton>
+            </Link>
+            <Link href="https://www.linkedin.com/in/sameer-khan-837023259/">
+              <Socialbutton>Linkdin</Socialbutton>
+            </Link>
+            <Link href="https://github.com/Sammk21">
+              <Socialbutton>Github</Socialbutton>
+            </Link>
           </div>
           <div className="py-3 text-sm sm:text-lg">
             <p>©2024 Sam, All Rights Reserved • Credits</p>

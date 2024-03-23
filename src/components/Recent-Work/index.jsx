@@ -161,16 +161,21 @@ const Projects = () => {
             className="col-span-6 row-span-8 py-4"
           >
             <div className=" relative aspect-square h-[70vw] w-[70vw] overflow-hidden rounded-3xl lg:h-[40vw] lg:w-[40vw]">
-              <div class="container">
-                <div class="reveal aspect-square">
-                  <img
-                    className="bottom-0 left-0 right-0 top-0 h-full w-full object-cover "
-                    onMouseEnter={() => handleMouseEnter('/videos/apps.mp4')}
-                    onMouseLeave={handleMouseLeave}
-                    src="/dddepth-249.jpg"
-                  />
+              <a
+                className="https://github.com/Sammk21/AfStore"
+                href="https://almostfamous.co.in"
+              >
+                <div class="container">
+                  <div class="reveal aspect-square">
+                    <img
+                      className="bottom-0 left-0 right-0 top-0 h-full w-full object-cover "
+                      onMouseEnter={() => handleMouseEnter('/videos/apps.mp4')}
+                      onMouseLeave={handleMouseLeave}
+                      src="/dddepth-249.jpg"
+                    />
+                  </div>
                 </div>
-              </div>
+              </a>
               <div className="absolute bottom-[5%] left-[5%]">
                 <div className="flex flex-col gap-y-2">
                   <div className="flex flex-col gap-y-2  text-xs"></div>
