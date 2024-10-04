@@ -122,16 +122,14 @@ const Projects = () => {
             className="project-container col-span-4 row-span-4 py-4"
           >
             <div className=" relative aspect-square h-[70vw] w-[70vw] overflow-hidden rounded-3xl lg:h-[30vw] lg:w-[30vw]">
-              <a className="" href="https://almostfamous.co.in">
-                <div class="container">
-                  <div class="reveal bg-[#d06c10]">
+              <a target="_blank" href="https://github.com/Sammk21/AfStore">
+                <div class="container ">
+                  <div class="reveal bg-[#ff8800b3]">
                     <img
                       className="bottom-0 left-0 right-0 top-0 h-full w-full object-cover "
-                      onMouseEnter={() =>
-                        handleMouseEnter('/videos/websites.mp4')
-                      }
+                      onMouseEnter={() => handleMouseEnter('/videos/AF.gif')}
                       onMouseLeave={handleMouseLeave}
-                      src="https://images.unsplash.com/photo-1531727991582-cfd25ce79613?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80%20634w"
+                      src="/videos/IMAGE.PNG"
                     />
                   </div>
                 </div>
@@ -139,16 +137,16 @@ const Projects = () => {
               <div className="project-title absolute bottom-[5%] left-[5%] text-black ">
                 <div className="flex flex-col gap-y-2">
                   <div className="flex flex-col gap-y-2  overflow-hidden text-xs"></div>
-                  <div className="project-title  text-black ">
+                  <a href="">
                     <div className="group flex w-[100%] items-center justify-between gap-x-3">
-                      <motion.div className="rounded-full bg-white px-3 py-4 drop-shadow-sm">
-                        Af-store
-                      </motion.div>
-                      <motion.div className="flex h-fit items-center justify-center rounded-full bg-white p-4 text-2xl drop-shadow-sm ">
+                      <div className=" rounded-full bg-white px-3 py-4 drop-shadow-sm">
+                        AELZEL
+                      </div>
+                      <div className="flex h-fit items-center justify-center rounded-full bg-white p-4 text-2xl drop-shadow-sm ">
                         <PiArrowUpRightThin className="stroke-black " />
-                      </motion.div>
+                      </div>
                     </div>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -161,17 +159,14 @@ const Projects = () => {
             className="col-span-6 row-span-8 py-4"
           >
             <div className=" relative aspect-square h-[70vw] w-[70vw] overflow-hidden rounded-3xl lg:h-[40vw] lg:w-[40vw]">
-              <a
-                className="https://github.com/Sammk21/AfStore"
-                href="https://almostfamous.co.in"
-              >
-                <div class="container">
-                  <div class="reveal aspect-square">
+              <a target="_blank" href="https://github.com/Sammk21/dbz-store-of">
+                <div className="container h-full w-full">
+                  <div className="reveal h-full w-full bg-[#ff8800b3]">
                     <img
-                      className="bottom-0 left-0 right-0 top-0 h-full w-full object-cover "
-                      onMouseEnter={() => handleMouseEnter('/videos/apps.mp4')}
+                      className="absolute bottom-0 left-0 right-0 top-0 h-full w-full rounded-3xl object-cover "
+                      onMouseEnter={() => handleMouseEnter('/videos/Movie.gif')}
                       onMouseLeave={handleMouseLeave}
-                      src="/dddepth-249.jpg"
+                      src="/images/DBZ2.png"
                     />
                   </div>
                 </div>
@@ -180,14 +175,19 @@ const Projects = () => {
                 <div className="flex flex-col gap-y-2">
                   <div className="flex flex-col gap-y-2  text-xs"></div>
                   <div className="project-title  text-black ">
-                    <div className="group flex w-[100%] items-center justify-between gap-x-3">
-                      <div className=" rounded-full bg-white px-3 py-4 drop-shadow-sm">
-                        Combi
+                    <a
+                      target="_blank"
+                      href="https://github.com/Sammk21/dbz-store-of"
+                    >
+                      <div className="group flex w-[100%] items-center justify-between gap-x-3">
+                        <motion.div className=" cursor-pointer rounded-full bg-white px-3 py-4 drop-shadow-sm">
+                          Divide by zero
+                        </motion.div>
+                        <motion.div className=" flex h-fit cursor-pointer items-center justify-center rounded-full bg-white p-4 text-2xl drop-shadow-sm ">
+                          <PiArrowUpRightThin className="stroke-black " />
+                        </motion.div>
                       </div>
-                      <div className="flex h-fit items-center justify-center rounded-full bg-white p-4 text-2xl drop-shadow-sm ">
-                        <PiArrowUpRightThin className="stroke-black " />
-                      </div>
-                    </div>
+                    </a>
                   </div>
                 </div>
               </div>

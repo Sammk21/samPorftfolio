@@ -7,7 +7,7 @@ import CustomCursor from '../custom-crusor/Cursor';
 
 export const projects = [
   {
-    title: 'Web Development',
+    title: 'WebApp Dev',
 
     description:
       'I create unique, custom-coded websites that are tailored to your brand. I focus on scalability, performance,accessibility, and engaging animations for a memorable experience.',

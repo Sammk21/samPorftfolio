@@ -55,7 +55,7 @@ const CustomCursor = ({ s, videoSrc }) => {
       }}
     >
       {videoSrc && (
-        <video
+        <img
           className=""
           style={{
             zIndex: 9999,
@@ -64,8 +64,6 @@ const CustomCursor = ({ s, videoSrc }) => {
             objectFit: 'cover',
             objectPosition: 'center',
           }}
-          autoPlay
-          loop
           src={videoSrc}
         />
       )}
