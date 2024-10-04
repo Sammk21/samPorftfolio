@@ -164,7 +164,7 @@ const Projects = () => {
                   <div className="reveal h-full w-full bg-[#ff8800b3]">
                     <img
                       className="absolute bottom-0 left-0 right-0 top-0 h-full w-full rounded-3xl object-cover "
-                      onMouseEnter={() => handleMouseEnter('/videos/Movie.gif')}
+                      onMouseEnter={() => handleMouseEnter('/Movie.gif')}
                       onMouseLeave={handleMouseLeave}
                       src="/images/DBZ2.png"
                     />
