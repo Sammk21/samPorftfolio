@@ -264,7 +264,7 @@ const Projects = () => {
         <div className="relative mt-5 flex flex-col justify-start sm:mt-0">
           <Safari
             src={'/images/onlyeducation.webp'}
-            url="dividebyzero.com"
+            url="onlyeducation.in"
             className="size-full"
           />
           <div className="">
