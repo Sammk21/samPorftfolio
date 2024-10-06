@@ -40,7 +40,7 @@ const Projects = () => {
       <BlurFade key={2} delay={0.25 + 2 * 0.05} inView>
         <div className="relative mt-5 flex flex-col justify-start sm:mt-0">
           <Safari
-            src={'/Movie.gif'}
+            src={'/images/dividebyzero.webp'}
             url="dividebyzero.com"
             className="size-full"
           />
