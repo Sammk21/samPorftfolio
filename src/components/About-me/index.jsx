@@ -101,6 +101,7 @@ const AboutMe = () => {
                   custom={index}
                   animate={aboutInView ? 'open' : 'closed'}
                   transition={{ ease: [0.16, 1, 0.3, 1] }}
+                  viewport={{ once: true }}
                 >
                   {word}
                 </motion.span>
@@ -215,6 +216,7 @@ const AboutMe = () => {
                     variants={slideUp}
                     custom={index}
                     animate={isInView ? 'open' : 'closed'}
+                    viewport={{ once: true }}
                   >
                     {word}
                   </motion.span>
