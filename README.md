@@ -1,38 +1,103 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Design a premium, responsive user dashboard UI for an online competitive exam platform (like Testbook) using Apple-style aesthetics. The dashboard should follow a glassmorphism theme with soft shadows, SF Pro-inspired typography, and subtle animations.
 
-## Getting Started
+## Layout Structure
+Create a clean, grid-based layout divided into top and main sections with side padding and generous spacing between cards.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Components to Include:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 1. **HeaderBar**
+- User profile picture (circular)
+- Greeting with user name (“Hi, Rahul 👋”)
+- Current exam goal (e.g., “Preparing for SSC CGL”)
+- Notification bell with badge count
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+---
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### 2. **StatsOverview Card (Grid of 4)**
+Four small glass cards with the following stats:
+- ✅ Total Tests Taken
+- 🏆 Best Rank Achieved
+- 📊 Avg. Accuracy (%)
+- ⏱️ Time Spent on Platform
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Each should include:
+- Icon
+- Label
+- Value
+- Micro-animation on hover (e.g., slight scale-up)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+---
 
-## Learn More
+### 3. **PerformanceGraph**
+- Line or area chart showing user's score trend over the last 5 tests
+- Y-axis: Score (%)
+- X-axis: Test names/dates
+- Hover tooltip for score detail
+- Smooth transition animation
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4. **RecentTestsList**
+- Card with 3–5 test entries
+- Each item should show:
+  - Test Name
+  - Score (e.g., “78%”)
+  - Rank (e.g., “AIR 1250”)
+  - Status Badge (Completed / In Progress / Missed)
+  - Timestamp (e.g., “2 days ago”)
+- Status badges should be color-coded and have a legend below
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+### 5. **LeaderboardCard**
+- Glass panel showing:
+  - User’s All India Rank
+  - Score compared to top 3 users
+  - Progress bar showing user's percentile
+- Include a small “View Full Leaderboard” button
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### 6. **UpcomingEventsCard**
+- List of upcoming:
+  - Live Classes
+  - Scheduled Mock Tests
+- Each with:
+  - Title
+  - Date & Time
+  - Join / Register button
+- Calendar-style layout
+
+---
+
+### 7. **SuggestionsPanel**
+- Horizontally scrollable card list
+- Based on weak areas, recommend:
+  - Specific quizzes
+  - Concept videos
+  - Articles or revision notes
+- Use tag chips (e.g., “Weak in Quant”) and CTA buttons
+
+---
+
+### 8. **AchievementsPanel**
+- Grid or carousel of earned badges/certificates
+- Show:
+  - Icon or badge image
+  - Achievement title (e.g., “Mock Master”)
+  - Short description
+- Option to download certificate
+
+---
+
+## Design Style
+
+- **Glassmorphism**: Use backdrop blur + low-opacity white with soft borders
+- **Typography**: Use SF Pro-inspired clean sans-serif fonts
+- **Shadows**: Soft, layered shadows to create depth
+- **Colors**: Cool, pastel tones (e.g., lavender, sky blue, soft mint)
+- **Animations**: Subtle transitions for hover/focus states, loading spinners
+
+Ensure the entire layout is mobile responsive and fully accessible via keyboard.
